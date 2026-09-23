@@ -1,0 +1,56 @@
+====================================================================
+SISTEMA INTELIGENTE DE RUTAS TRANSMILENIO (SIRTM BOGOTÁ)
+REGLAS LÓGICAS EN LENGUAJE NATURAL Y FORMAL
+====================================================================
+
+Regla 1: Bidireccionalidad de Conexiones
+--------------------------------------------------------------------
+Descripción: Toda conexión directa entre dos estaciones A y B dentro de una misma troncal permite desplazarse en ambos sentidos con el mismo tiempo estimado.
+Formalización:
+  ∀ A, B, R, T ( conexion(A, B, R, T) ⇒ conexion(B, A, R, T) )
+Ejemplo:
+  conexion(Portal Usme, Danubio, Caracas, 5) 
+  ⇒ conexion(Danubio, Portal Usme, Caracas, 5)
+
+Regla 2: Transbordo por Cambio de Troncal
+--------------------------------------------------------------------
+Descripción: Cuando una ruta requiere desplazarse de la troncal R1 a la troncal R2 pasando por una estación común B, se genera un transbordo entre ambas troncales.
+Formalización:
+  ∀ A, B, C, R1, R2, T1, T2 (
+    conexion(A, B, R1, T1) ∧ conexion(B, C, R2, T2) ∧ (R1 ≠ R2)
+    ⇒ transbordo_requerido(B, R1, R2)
+  )
+Ejemplo:
+  Ir de Museo Nacional (Caracas) a Héroes (Autonorte) implica un transbordo en Calle 72.
+
+Regla 3: Tiempo Adicional por Transbordo
+--------------------------------------------------------------------
+Descripción: Todo transbordo entre dos troncales distintas añade una penalización de 5 minutos al tiempo total del trayecto por concepto de caminata e infraestructura de la estación.
+Formalización:
+  ∀ E, R1, R2 ( transbordo(E, R1, R2, T_base) ⇒ T_transbordo = 5 )
+Ejemplo:
+  El transbordo en Calle 72 entre Caracas y Autonorte suma 5 minutos al tiempo total.
+
+Regla 4: Criterio de Ruta Más Rápida
+--------------------------------------------------------------------
+Descripción: Si existen múltiples secuencias de estaciones y transbordos para ir desde un origen A hasta un destino B, el sistema debe seleccionar la alternativa que minimice el tiempo total de recorrido (tiempo de desplazamiento + penalizaciones por transbordo).
+Formalización:
+  Ruta_Óptima(A, B) = arg min_{P ∈ Caminos(A, B)} CostoTotal(P)
+Ejemplo:
+  Si existen dos caminos con tiempos de 35 min y 40 min, el sistema elige la ruta de 35 min.
+
+Regla 5: Preferencia de Conexión Directa
+--------------------------------------------------------------------
+Descripción: Ante rutas con un tiempo total equivalente, el sistema preferirá aquellas que no requieran cambios de troncal sobre aquellas que requieran transbordos.
+Formalización:
+  ∀ Ruta1, Ruta2 ( (Costo(Ruta1) == Costo(Ruta2) ∧ Transbordos(Ruta1) < Transbordos(Ruta2)) ⇒ Preferir(Ruta1) )
+Ejemplo:
+  Una conexión de 10 min sin transbordo se prefiere sobre una de 10 min con transbordo.
+
+Regla 6: Estación Compartida (Transbordo Físico Nulo)
+--------------------------------------------------------------------
+Descripción: Si una estación pertenece físicamente a dos o más troncales simultáneamente (ej. Calle 72, Calle 100), se permite la transferencia entre troncales en dicho punto sin desplazamiento entre estaciones distintas.
+Formalización:
+  ∀ E, T1, T2 ( estacion(E, T1, Lat, Lon) ∧ estacion(E, T2, Lat, Lon) ∧ (T1 ≠ T2) ⇒ es_compartida(E) ∧ transbordo_posible(E, T1, T2) )
+Ejemplo:
+  Calle 72 está definida en Caracas y en Autonorte en las mismas coordenadas (4.6580, -74.0620), lo que permite cambiar de la troncal Caracas a Autonorte en Calle 72.

@@ -1,0 +1,28 @@
+% Estaciones de TransMilenio
+estacion(Portal Usme, Caracas, 4.5280, -74.1180).
+estacion(Danubio, Caracas, 4.5480, -74.1150).
+estacion(Museo Nacional, Caracas, 4.6120, -74.0980).
+estacion(Calle 72, Caracas, 4.6580, -74.0620).
+estacion(Calle 72, Autonorte, 4.6580, -74.0620).
+estacion(Heroes, Autonorte, 4.6750, -74.0580).
+estacion(Calle 100, Autonorte, 4.6890, -74.0520).
+estacion(Calle 100, Suba, 4.6890, -74.0520).
+estacion(Portal Norte, Autonorte, 4.7540, -74.0480).
+estacion(Portal Suba, Suba, 4.7420, -74.0940).
+estacion(Niza, Suba, 4.6980, -74.0720).
+estacion(Marruecos, Alimentadora, 4.5350, -74.1250).
+
+% Conexiones directas
+conexion(Portal Usme, Danubio, Caracas, 5).
+conexion(Danubio, Museo Nacional, Caracas, 8).
+conexion(Museo Nacional, Calle 72, Caracas, 12).
+conexion(Calle 72, Heroes, Autonorte, 6).
+conexion(Heroes, Calle 100, Autonorte, 7).
+conexion(Calle 100, Portal Norte, Autonorte, 10).
+conexion(Portal Suba, Niza, Suba, 9).
+conexion(Niza, Calle 100, Suba, 8).
+conexion(Portal Usme, Marruecos, Alimentadora, 15).
+
+% Transbordos conocidos
+transbordo(Calle 72, Caracas, Autonorte, 5).
+transbordo(Calle 100, Autonorte, Suba, 5).
