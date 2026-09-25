@@ -198,6 +198,7 @@ sirtm_bogota/
 ## 👥 Integrante
 
 * **Estudiante:** [Franklin Gutierrez]
+* **Estudiante:** [Mary Gonzalez]
 
 
 ---
@@ -212,3 +213,32 @@ sirtm_bogota/
 ## 📄 Licencia
 
 Este proyecto fue desarrollado exclusivamente con fines académicos para la materia de Inteligencia Artificial Avanzada. Bajo licencia [MIT](LICENSE).
+
+## 💻 Comandos de Ejecución y Pruebas
+
+Para la ejecución y validación del proyecto se utilizaron diferentes comandos desde la terminal. Para ejecutar el sistema y calcular rutas óptimas entre las estaciones, se utilizaron los siguientes comandos:
+
+```bash
+python src/main.py "Portal Usme" "Portal Norte"
+python src/main.py "Portal Suba" "Portal Norte"
+```
+
+Estos comandos permiten probar el funcionamiento del sistema con diferentes estaciones de origen y destino, utilizando el algoritmo **A*** para determinar la ruta óptima.
+
+Para verificar el correcto funcionamiento del proyecto mediante pruebas unitarias, se utilizaron los siguientes comandos:
+
+```bash
+python -m unittest tests/test_rutas.py
+python -m unittest discover -s tests
+```
+
+El primer comando ejecuta directamente las pruebas definidas en `test_rutas.py`, mientras que el segundo utiliza el sistema de descubrimiento automático de `unittest` para localizar y ejecutar las pruebas disponibles dentro de la carpeta `tests`.
+
+Finalmente, para realizar una comparación entre los algoritmos **A*** y **Dijkstra**, se utilizó el siguiente comando:
+
+```bash
+python -c "from src.base_conocimiento import BaseConocimiento; from src.motor_inferencia import MotorInferencia; from src.busqueda_astar import BusquedaAStar; bc=BaseConocimiento(); m=MotorInferencia(bc); a=BusquedaAStar(bc, m); print(a.comparar_con_dijkstra('Portal Usme', 'Portal Norte'))"
+```
+
+Este comando permite comparar los resultados obtenidos por **A*** y **Dijkstra** para la ruta entre `Portal Usme` y `Portal Norte`, con el objetivo de analizar el comportamiento de ambos algoritmos en el cálculo de rutas dentro de la red modelada.
+
