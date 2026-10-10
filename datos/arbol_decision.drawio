@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" modified="2026-10-10T15:00:00.000Z" agent="Antigravity" version="22.1.0" type="device">
+  <diagram id="arbol_decision_sirtm" name="Árbol de Decisión SIRTM">
+    <mxGraphModel dx="1050" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- NODO RAÍZ -->
+        <mxCell id="nodo_raiz" value="&lt;b&gt;¿Afluencia Pasajeros&lt;br&gt;&amp;gt; Umbral?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="340" y="40" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- SUB-NODO IZQUIERDA: LLUVIA -->
+        <mxCell id="nodo_lluvia" value="&lt;b&gt;¿Lluvia Fuerte?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="170" y="190" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- SUB-NODO DERECHA: INCIDENTE -->
+        <mxCell id="nodo_incidente" value="&lt;b&gt;¿Incidente Vial?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="530" y="190" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- HOJA 1: BAJO -->
+        <mxCell id="hoja_bajo" value="&lt;b&gt;Clase:&lt;br&gt;BAJO&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#274e13;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="90" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- HOJA 2: ALTO -->
+        <mxCell id="hoja_alto" value="&lt;b&gt;Clase:&lt;br&gt;ALTO&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#b45f06;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="270" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- HOJA 3: MEDIO -->
+        <mxCell id="hoja_medio" value="&lt;b&gt;Clase:&lt;br&gt;MEDIO&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#7f6000;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="460" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- HOJA 4: CRÍTICO -->
+        <mxCell id="hoja_critico" value="&lt;b&gt;Clase:&lt;br&gt;CRÍTICO&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#990000;fontSize=13;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- CONECTORES NIVEL 1 -->
+        <mxCell id="edge_raiz_no" value="&lt;b&gt;No&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="nodo_raiz" target="nodo_lluvia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_raiz_si" value="&lt;b&gt;Sí&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="nodo_raiz" target="nodo_incidente">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CONECTORES NIVEL 2 (IZQUIERDA) -->
+        <mxCell id="edge_lluvia_no" value="&lt;b&gt;No&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="nodo_lluvia" target="hoja_bajo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_lluvia_si" value="&lt;b&gt;Sí&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="nodo_lluvia" target="hoja_alto">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- CONECTORES NIVEL 2 (DERECHA) -->
+        <mxCell id="edge_incidente_no" value="&lt;b&gt;No&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="nodo_incidente" target="hoja_medio">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="edge_incidente_si" value="&lt;b&gt;Sí&lt;/b&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fontSize=12;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="nodo_incidente" target="hoja_critico">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,86 @@
+========================================================================
+REGLAS DE DECISIÓN APRENDIDAS - CAPÍTULO 17 PALMA MÉNDEZ (2008)
+SISTEMA INTELIGENTE DE RUTAS TRANSMILENIO (SIRTM BOGOTÁ)
+========================================================================
+
+REGLA #01:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera <= 0.50) AND (incidente_vial_Ninguno <= 0.50) AND (incidente_vial_Falla_Mecanica <= 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 84 muestras, Confianza: 88.1%)
+
+REGLA #02:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera <= 0.50) AND (incidente_vial_Ninguno <= 0.50) AND (incidente_vial_Falla_Mecanica > 0.50) THEN Nivel_Congestion = 'Medio' (Soporte: 61 muestras, Confianza: 63.9%)
+
+REGLA #03:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera <= 0.50) AND (incidente_vial_Ninguno > 0.50) AND (tipo_dia_Laboral <= 0.50) THEN Nivel_Congestion = 'Bajo' (Soporte: 281 muestras, Confianza: 87.2%)
+
+REGLA #04:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera <= 0.50) AND (incidente_vial_Ninguno > 0.50) AND (tipo_dia_Laboral > 0.50) THEN Nivel_Congestion = 'Bajo' (Soporte: 343 muestras, Confianza: 61.2%)
+
+REGLA #05:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera > 0.50) AND (incidente_vial_Ninguno <= 0.50) AND (tiempo_base_minutos <= -0.18) THEN Nivel_Congestion = 'Alto' (Soporte: 28 muestras, Confianza: 92.9%)
+
+REGLA #06:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera > 0.50) AND (incidente_vial_Ninguno <= 0.50) AND (tiempo_base_minutos > -0.18) THEN Nivel_Congestion = 'Critico' (Soporte: 32 muestras, Confianza: 62.5%)
+
+REGLA #07:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera > 0.50) AND (incidente_vial_Ninguno > 0.50) AND (tiempo_base_minutos <= 1.83) THEN Nivel_Congestion = 'Medio' (Soporte: 267 muestras, Confianza: 72.3%)
+
+REGLA #08:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera > 0.50) AND (incidente_vial_Ninguno > 0.50) AND (tiempo_base_minutos > 1.83) THEN Nivel_Congestion = 'Alto' (Soporte: 17 muestras, Confianza: 76.5%)
+
+REGLA #09:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte > 0.50) AND (incidente_vial_Ninguno <= 0.50) AND (tiempo_base_minutos <= -0.49) THEN Nivel_Congestion = 'Alto' (Soporte: 17 muestras, Confianza: 100.0%)
+
+REGLA #10:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte > 0.50) AND (incidente_vial_Ninguno <= 0.50) AND (tiempo_base_minutos > -0.49) THEN Nivel_Congestion = 'Critico' (Soporte: 18 muestras, Confianza: 88.9%)
+
+REGLA #11:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte > 0.50) AND (incidente_vial_Ninguno > 0.50) AND (afluencia_pasajeros <= -0.31) AND (distancia_km <= -0.80) THEN Nivel_Congestion = 'Alto' (Soporte: 32 muestras, Confianza: 84.4%)
+
+REGLA #12:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte > 0.50) AND (incidente_vial_Ninguno > 0.50) AND (afluencia_pasajeros <= -0.31) AND (distancia_km > -0.80) THEN Nivel_Congestion = 'Alto' (Soporte: 63 muestras, Confianza: 98.4%)
+
+REGLA #13:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte > 0.50) AND (incidente_vial_Ninguno > 0.50) AND (afluencia_pasajeros > -0.31) AND (franja_horaria_Valle_Dia <= 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 10 muestras, Confianza: 50.0%)
+
+REGLA #14:
+  IF (afluencia_pasajeros <= 0.34) AND (clima_Lluvia_Fuerte > 0.50) AND (incidente_vial_Ninguno > 0.50) AND (afluencia_pasajeros > -0.31) AND (franja_horaria_Valle_Dia > 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 24 muestras, Confianza: 83.3%)
+
+REGLA #15:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos <= -0.18) AND (clima_Lluvia_Ligera <= 0.50) AND (clima_Lluvia_Fuerte <= 0.50) AND (incidente_vial_Ninguno <= 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 50 muestras, Confianza: 98.0%)
+
+REGLA #16:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos <= -0.18) AND (clima_Lluvia_Ligera <= 0.50) AND (clima_Lluvia_Fuerte <= 0.50) AND (incidente_vial_Ninguno > 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 210 muestras, Confianza: 71.9%)
+
+REGLA #17:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos <= -0.18) AND (clima_Lluvia_Ligera <= 0.50) AND (clima_Lluvia_Fuerte > 0.50) AND (incidente_vial_Ninguno <= 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 15 muestras, Confianza: 60.0%)
+
+REGLA #18:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos <= -0.18) AND (clima_Lluvia_Ligera <= 0.50) AND (clima_Lluvia_Fuerte > 0.50) AND (incidente_vial_Ninguno > 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 43 muestras, Confianza: 95.3%)
+
+REGLA #19:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos <= -0.18) AND (clima_Lluvia_Ligera > 0.50) AND (incidente_vial_Ninguno <= 0.50) AND (incidente_vial_Bloqueo_Parcial <= 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 12 muestras, Confianza: 83.3%)
+
+REGLA #20:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos <= -0.18) AND (clima_Lluvia_Ligera > 0.50) AND (incidente_vial_Ninguno <= 0.50) AND (incidente_vial_Bloqueo_Parcial > 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 10 muestras, Confianza: 80.0%)
+
+REGLA #21:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos <= -0.18) AND (clima_Lluvia_Ligera > 0.50) AND (incidente_vial_Ninguno > 0.50) AND (afluencia_pasajeros <= 0.64) THEN Nivel_Congestion = 'Alto' (Soporte: 10 muestras, Confianza: 80.0%)
+
+REGLA #22:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos <= -0.18) AND (clima_Lluvia_Ligera > 0.50) AND (incidente_vial_Ninguno > 0.50) AND (afluencia_pasajeros > 0.64) THEN Nivel_Congestion = 'Alto' (Soporte: 80 muestras, Confianza: 100.0%)
+
+REGLA #23:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos > -0.18) AND (incidente_vial_Ninguno <= 0.50) AND (tiempo_base_minutos <= 0.51) THEN Nivel_Congestion = 'Critico' (Soporte: 13 muestras, Confianza: 84.6%)
+
+REGLA #24:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos > -0.18) AND (incidente_vial_Ninguno <= 0.50) AND (tiempo_base_minutos > 0.51) THEN Nivel_Congestion = 'Critico' (Soporte: 32 muestras, Confianza: 100.0%)
+
+REGLA #25:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos > -0.18) AND (incidente_vial_Ninguno > 0.50) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera <= 0.50) THEN Nivel_Congestion = 'Alto' (Soporte: 162 muestras, Confianza: 98.8%)
+
+REGLA #26:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos > -0.18) AND (incidente_vial_Ninguno > 0.50) AND (clima_Lluvia_Fuerte <= 0.50) AND (clima_Lluvia_Ligera > 0.50) THEN Nivel_Congestion = 'Critico' (Soporte: 61 muestras, Confianza: 57.4%)
+
+REGLA #27:
+  IF (afluencia_pasajeros > 0.34) AND (tiempo_base_minutos > -0.18) AND (incidente_vial_Ninguno > 0.50) AND (clima_Lluvia_Fuerte > 0.50) THEN Nivel_Congestion = 'Critico' (Soporte: 25 muestras, Confianza: 100.0%)
+

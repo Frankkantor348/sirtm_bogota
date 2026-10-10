@@ -169,6 +169,46 @@ Declaración formal de estaciones, coordenadas geográficas, tiempos de viaje en
 
 ---
 
+---
+
+## 🤖 Actividad 5: Métodos Supervisados (Árboles y Reglas de Decisión)
+
+Conforme al **Capítulo 17 de Palma Méndez (2008)** (*Aprendizaje de árboles y reglas de decisión*), el sistema incorpora modelos predictivos supervisados basados en árboles de decisión y extracción automática de reglas lógicas de producción (`IF ... THEN ...`).
+
+### 📊 Dataset SIRTM Bogotá (`datos/dataset_viajes_transmilenio.csv`)
+* **Muestra:** 2,500 observaciones calibradas con variables reales de movilidad y clima de Bogotá.
+* **Variables Predictoras:** Troncal, Distancia (km), Tipo de Día (Laboral / Fin de Semana), Hora, Franja Horaria (Pico / Valle), Clima (Despejado, Lluvia Ligera, Lluvia Fuerte), Afluencia de Pasajeros, Incidente Vial, Tiempo Base.
+* **Variable Objetivo de Clasificación:** `Nivel_Congestion` (`Bajo`, `Medio`, `Alto`, `Critico`).
+* **Variable Objetivo de Regresión:** `Tiempo_Real_Minutos` (Tiempo efectivo observado de viaje).
+
+### 📈 Métricas de Rendimiento Obtenidas:
+* **Clasificador (DecisionTreeClassifier):**
+  * Exactitud (Accuracy): **76.60%**
+  * F1-Score Ponderado: **75.88%**
+  * Validación Cruzada (5-Fold Stratified CV): **77.44% (± 2.56%)**
+  * Total de Reglas de Decisión Extraídas: **27 reglas inductivas**
+* **Regresor (DecisionTreeRegressor):**
+  * Coeficiente de Determinación ($R^2$): **0.9453**
+  * Error Absoluto Medio (MAE): **2.37 minutos**
+  * RMSE: **3.59 minutos**
+
+### 🚀 Comandos de Ejecución de Machine Learning:
+```bash
+# 1. Generar / regenerar el dataset calibrado
+python src/generar_dataset.py
+
+# 2. Entrenar modelos supervisados, evaluar métricas y exportar reglas
+python src/aprendizaje_supervisado.py
+
+# 3. Ejecutar mediante la interfaz principal del sistema
+python src/main.py --ml
+
+# 4. Correr la suite completa de pruebas unitarias (13 tests)
+python -m unittest discover tests
+```
+
+---
+
 ## 📁 Estructura del Proyecto
 
 ```text
@@ -176,18 +216,29 @@ sirtm_bogota/
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
+├── ENTREGABLE_ACTIVIDAD_5_APRENDIZAJE_SUPERVISADO.docx
 ├── conocimiento/
 │   ├── hechos.txt
 │   └── reglas.txt
+├── datos/
+│   ├── dataset_viajes_transmilenio.csv
+│   ├── arbol_decision.png
+│   ├── matriz_confusion.png
+│   ├── metricas_modelo.json
+│   └── reglas_decision.txt
 ├── src/
 │   ├── __init__.py
 │   ├── base_conocimiento.py
 │   ├── motor_inferencia.py
 │   ├── busqueda_astar.py
+│   ├── generar_dataset.py
+│   ├── aprendizaje_supervisado.py
+│   ├── generar_documento_word.py
 │   └── main.py
 ├── tests/
 │   ├── __init__.py
-│   └── test_rutas.py
+│   ├── test_rutas.py
+│   └── test_aprendizaje_supervisado.py
 └── docs/
     ├── informe.md
     └── guion_video.md
@@ -195,24 +246,23 @@ sirtm_bogota/
 
 ---
 
-## 👥 Integrante
+## 👥 Integrantes del Equipo (Máximo 4 Integrantes)
 
-* **Estudiante:** [Franklin Gutierrez]
-* **Estudiante:** [Mary Gonzalez]
-
+* **Estudiante 1:** Franklin Gutiérrez (Código: [Código Estudiante])
+* **Estudiante 2:** Mary González (Código: [Código Estudiante])
+* **Estudiante 3:** [Nombre y Apellidos - Código]
+* **Estudiante 4:** [Nombre y Apellidos - Código]
 
 ---
 
 ## 📹 Enlaces y Entregables
 
-* **Repositorio GitHub:** [https://github.com/Frankkantor348/sirtm_bogota](https://github.com/Frankkantor348/sirtm_bogota)
-* **Video Demostrativo (YouTube/Loom):** [Link al video de la presentación]
+* **Repositorio Git:** [https://github.com/Frankkantor348/sirtm_bogota](https://github.com/Frankkantor348/sirtm_bogota)
+* **Documento Word Listo para Entrega:** `ENTREGABLE_ACTIVIDAD_5_APRENDIZAJE_SUPERVISADO.docx`
+* **Video Demostrativo (Máx. 10 minutos):** [Inserte aquí el link de YouTube / Loom / Drive]
+* **Mapa Conceptual:** [Inserte aquí el enlace del mapa conceptual]
 
 ---
-
-## 📄 Licencia
-
-Este proyecto fue desarrollado exclusivamente con fines académicos para la materia de Inteligencia Artificial Avanzada. Bajo licencia [MIT](LICENSE).
 
 ## 💻 Comandos de Ejecución y Pruebas
 
@@ -241,4 +291,10 @@ python -c "from src.base_conocimiento import BaseConocimiento; from src.motor_in
 ```
 
 Este comando permite comparar los resultados obtenidos por **A*** y **Dijkstra** para la ruta entre `Portal Usme` y `Portal Norte`, con el objetivo de analizar el comportamiento de ambos algoritmos en el cálculo de rutas dentro de la red modelada.
+
+---
+
+## 📄 Licencia
+
+Este proyecto fue desarrollado exclusivamente con fines académicos para la materia de Inteligencia Artificial Avanzada. Bajo licencia [MIT](LICENSE).
 

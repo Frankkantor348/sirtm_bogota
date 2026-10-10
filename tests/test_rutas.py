@@ -1,9 +1,12 @@
-"""
-Módulo de Pruebas Unitarias para el Sistema Inteligente de Rutas TransMilenio.
-Ejecución: python -m unittest tests/test_rutas.py
-"""
-
+import sys
 import unittest
+from pathlib import Path
+
+# Asegurar que el directorio raíz del proyecto esté en sys.path
+BASE_DIR = Path(__file__).resolve().parent.parent
+if str(BASE_DIR) not in sys.path:
+    sys.path.insert(0, str(BASE_DIR))
+
 from src.base_conocimiento import BaseConocimiento
 from src.motor_inferencia import MotorInferencia
 from src.busqueda_astar import BusquedaAStar

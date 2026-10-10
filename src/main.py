@@ -203,8 +203,14 @@ def main():
     parser.add_argument("destino", nargs="?", type=str, help="Estación de destino")
     parser.add_argument("--explicar", action="store_true", help="Muestra las inferencias lógicas aplicadas")
     parser.add_argument("--todas", action="store_true", help="Muestra todas las rutas posibles alternativas")
+    parser.add_argument("--ml", action="store_true", help="Ejecuta el módulo de Aprendizaje Supervisado (Árboles y Reglas de Decisión)")
 
     args = parser.parse_args()
+
+    if args.ml:
+        from src.aprendizaje_supervisado import ejecutar_pipeline_completo
+        ejecutar_pipeline_completo()
+        return
 
     bc = BaseConocimiento()
     motor = MotorInferencia(bc)
