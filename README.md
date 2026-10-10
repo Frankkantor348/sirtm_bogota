@@ -197,15 +197,30 @@ Conforme al **Capítulo 17 de Palma Méndez (2008)** (*Aprendizaje de árboles y
 # 1. Generar / regenerar el dataset calibrado
 python src/generar_dataset.py
 
-# 2. Entrenar modelos supervisados, evaluar métricas y exportar reglas
+# 2. Entrenar modelos supervisados (Árboles y Reglas de Decisión)
 python src/aprendizaje_supervisado.py
-
-# 3. Ejecutar mediante la interfaz principal del sistema
 python src/main.py --ml
 
-# 4. Correr la suite completa de pruebas unitarias (13 tests)
+# 3. Entrenar modelos no supervisados (K-Means, Codo, Silueta y PCA)
+python src/aprendizaje_no_supervisado.py
+python src/main.py --clustering
+
+# 4. Correr la suite completa de pruebas unitarias (17 tests)
 python -m unittest discover tests
 ```
+
+---
+
+## 🔍 Actividad: Métodos No Supervisados (Técnicas de Agrupamiento)
+
+Conforme al **Capítulo 16 de Palma Méndez (2008)** (*Técnicas de agrupamiento*), el sistema incorpora modelos no supervisados para descubrir patrones latentes de operación y vulnerabilidad:
+* **Algoritmo Particional:** K-Means con inicialización $k\text{-means++}$.
+* **Selección de $k$ Óptimo:** Método del Codo (Elbow Method) y Coeficiente de Silueta evaluados entre $k=2$ y $k=7$ ($k=3$ seleccionado).
+* **Perfiles Descubiertos:**
+  * **Cluster 1 (47.2%):** Flujo Libre en Horas Valle (Retraso medio: 3.1 min | Afluencia: 1,197 pas/hr).
+  * **Cluster 2 (25.4%):** Demanda Alta / Tráfico Controlado (Retraso medio: 6.7 min | Afluencia: 2,634 pas/hr).
+  * **Cluster 0 (27.4%):** Vulnerabilidad Crítica por Contingencias (Retraso medio: 13.8 min | Afluencia: 1,836 pas/hr).
+* **Visualización:** Proyección 2D mediante PCA con centroides y dendrograma jerárquico aglomerativo (Ward).
 
 ---
 
@@ -216,7 +231,6 @@ sirtm_bogota/
 ├── .gitignore
 ├── README.md
 ├── requirements.txt
-├── ENTREGABLE_ACTIVIDAD_5_APRENDIZAJE_SUPERVISADO.docx
 ├── conocimiento/
 │   ├── hechos.txt
 │   └── reglas.txt
@@ -225,7 +239,12 @@ sirtm_bogota/
 │   ├── arbol_decision.png
 │   ├── matriz_confusion.png
 │   ├── metricas_modelo.json
-│   └── reglas_decision.txt
+│   ├── reglas_decision.txt
+│   ├── clustering_kmeans.png
+│   ├── metodo_codo_silueta.png
+│   ├── dendrograma.png
+│   ├── clusters_resumen.csv
+│   └── metricas_no_supervisado.json
 ├── src/
 │   ├── __init__.py
 │   ├── base_conocimiento.py
@@ -233,12 +252,13 @@ sirtm_bogota/
 │   ├── busqueda_astar.py
 │   ├── generar_dataset.py
 │   ├── aprendizaje_supervisado.py
-│   ├── generar_documento_word.py
+│   ├── aprendizaje_no_supervisado.py
 │   └── main.py
 ├── tests/
 │   ├── __init__.py
 │   ├── test_rutas.py
-│   └── test_aprendizaje_supervisado.py
+│   ├── test_aprendizaje_supervisado.py
+│   └── test_aprendizaje_no_supervisado.py
 └── docs/
     ├── informe.md
     └── guion_video.md

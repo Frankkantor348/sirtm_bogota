@@ -1,0 +1,44 @@
+{
+    "algoritmo": "K-Means",
+    "k_clusters": 3,
+    "inercia_wcss": 7324.85,
+    "silhouette_score": 0.2935,
+    "calinski_harabasz_score": 1308.21,
+    "davies_bouldin_score": 1.2756,
+    "pca_varianza_explicada_acumulada_pct": 73.87,
+    "perfiles": {
+        "0": {
+            "distancia_km": 18.15,
+            "hora": 12.31,
+            "afluencia_pasajeros": 1835.7,
+            "tiempo_base_minutos": 28.42,
+            "tiempo_real_minutos": 42.15,
+            "retraso_minutos": 13.75,
+            "total_viajes": 685,
+            "porcentaje": 27.4,
+            "perfil_operativo": "Perfil Crítico / Alta Vulnerabilidad (Pico + Incidentes)"
+        },
+        "1": {
+            "distancia_km": 5.5,
+            "hora": 12.75,
+            "afluencia_pasajeros": 1197.24,
+            "tiempo_base_minutos": 10.73,
+            "tiempo_real_minutos": 13.76,
+            "retraso_minutos": 3.08,
+            "total_viajes": 1180,
+            "porcentaje": 47.2,
+            "perfil_operativo": "Perfil Flujo Libre / Operación Estable (Valle)"
+        },
+        "2": {
+            "distancia_km": 5.54,
+            "hora": 12.34,
+            "afluencia_pasajeros": 2633.9,
+            "tiempo_base_minutos": 9.09,
+            "tiempo_real_minutos": 15.77,
+            "retraso_minutos": 6.69,
+            "total_viajes": 635,
+            "porcentaje": 25.4,
+            "perfil_operativo": "Perfil Demanda Alta / Tráfico Controlado"
+        }
+    }
+}

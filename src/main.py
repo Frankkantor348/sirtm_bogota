@@ -204,12 +204,18 @@ def main():
     parser.add_argument("--explicar", action="store_true", help="Muestra las inferencias lógicas aplicadas")
     parser.add_argument("--todas", action="store_true", help="Muestra todas las rutas posibles alternativas")
     parser.add_argument("--ml", action="store_true", help="Ejecuta el módulo de Aprendizaje Supervisado (Árboles y Reglas de Decisión)")
+    parser.add_argument("--clustering", action="store_true", help="Ejecuta el módulo de Aprendizaje No Supervisado (K-Means, Codo, PCA)")
 
     args = parser.parse_args()
 
     if args.ml:
         from src.aprendizaje_supervisado import ejecutar_pipeline_completo
         ejecutar_pipeline_completo()
+        return
+
+    if args.clustering:
+        from src.aprendizaje_no_supervisado import ejecutar_pipeline_no_supervisado
+        ejecutar_pipeline_no_supervisado()
         return
 
     bc = BaseConocimiento()

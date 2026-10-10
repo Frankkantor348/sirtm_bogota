@@ -1,0 +1,4 @@
+cluster_kmeans,distancia_km,hora,afluencia_pasajeros,tiempo_base_minutos,tiempo_real_minutos,retraso_minutos,total_viajes,porcentaje,perfil_operativo
+0,18.15,12.31,1835.7,28.42,42.15,13.75,685,27.4,Perfil Crítico / Alta Vulnerabilidad (Pico + Incidentes)
+1,5.5,12.75,1197.24,10.73,13.76,3.08,1180,47.2,Perfil Flujo Libre / Operación Estable (Valle)
+2,5.54,12.34,2633.9,9.09,15.77,6.69,635,25.4,Perfil Demanda Alta / Tráfico Controlado
