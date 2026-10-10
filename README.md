@@ -259,28 +259,21 @@ sirtm_bogota/
 │   ├── test_rutas.py
 │   ├── test_aprendizaje_supervisado.py
 │   └── test_aprendizaje_no_supervisado.py
-└── docs/
-    ├── informe.md
-    └── guion_video.md
 ```
 
 ---
 
-## 👥 Integrantes del Equipo (Máximo 4 Integrantes)
+## 👥 Integrantes del Equipo
 
 * **Estudiante 1:** Franklin Gutiérrez (Código: [Código Estudiante])
 * **Estudiante 2:** Mary González (Código: [Código Estudiante])
-* **Estudiante 3:** [Nombre y Apellidos - Código]
-* **Estudiante 4:** [Nombre y Apellidos - Código]
 
 ---
 
 ## 📹 Enlaces y Entregables
 
 * **Repositorio Git:** [https://github.com/Frankkantor348/sirtm_bogota](https://github.com/Frankkantor348/sirtm_bogota)
-* **Documento Word Listo para Entrega:** `ENTREGABLE_ACTIVIDAD_5_APRENDIZAJE_SUPERVISADO.docx`
 * **Video Demostrativo (Máx. 10 minutos):** [Inserte aquí el link de YouTube / Loom / Drive]
-* **Mapa Conceptual:** [Inserte aquí el enlace del mapa conceptual]
 
 ---
 

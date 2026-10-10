@@ -9,3 +9,5 @@ __pycache__/
 *.log
 *.docx
 ENTREGABLE_*
+*guion*
+docs/
