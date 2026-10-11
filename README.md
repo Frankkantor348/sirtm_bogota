@@ -265,7 +265,7 @@ sirtm_bogota/
 
 ## 👥 Integrantes del Equipo
 
-* **Estudiante 1:** Franklin Gutiérrez (Código: [Código Estudiante])
+* **Estudiante 1:** Franklin Gutiérrez (Código: [100197414])
 * **Estudiante 2:** Mary González (Código: [100125114])
 
 ---
